@@ -73,6 +73,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Shared\RedisSentinel.cs">
+      <Link>RedisSentinel.cs</Link>
+    </Compile>
     <Compile Include="..\Shared\RedisServer.cs">
       <Link>RedisServer.cs</Link>
     </Compile>
@@ -80,6 +83,7 @@
     <Compile Include="RedisConnectionWrapperFunctionalTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\Shared\Utility.cs" />
+    <Compile Include="RedisSessionStateProviderSentinelFunctionalTestcs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

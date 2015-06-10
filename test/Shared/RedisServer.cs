@@ -42,8 +42,8 @@ namespace Microsoft.Web.Redis.FunctionalTests
             KillRedisServers();
             _server = new Process();
             _server.StartInfo.FileName = "..\\..\\..\\..\\..\\..\\packages\\Redis-64.2.8.19\\redis-server.exe";
-            _server.StartInfo.Arguments = "--maxmemory 20000000";
-            _server.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            _server.StartInfo.Arguments = "..\\..\\..\\..\\..\\..\\packages\\Redis-64.2.8.19\\master.conf";
+            _server.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
             _server.Start();
             WaitForRedisToStart();
         }
