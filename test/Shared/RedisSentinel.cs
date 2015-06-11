@@ -23,7 +23,13 @@ namespace Microsoft.Web.Redis.FunctionalTests
 
         private readonly string redisConfigLocation = @"..\..\..\..\..\..\Test\Configs\";
 
-       
+        public List<ServerSetup> Servers
+        {
+            get
+            {
+                return _servers;
+            }
+        }
 
         private static void WaitForServerToStart(int port)
         {
@@ -122,7 +128,9 @@ namespace Microsoft.Web.Redis.FunctionalTests
                                          FileName = redisServerLocation,
                                          Arguments = arguments,
                                          WindowStyle = ProcessWindowStyle.Normal
-                                     }
+                         
+                                     },
+                                     
                              };
             serverSetup.Server = server;
 
@@ -130,14 +138,14 @@ namespace Microsoft.Web.Redis.FunctionalTests
         }
     }
 
-    internal class ServerSetup
+    public class ServerSetup
     {
         public int Port { get; set; }
         public ServerId ServerId { get; set; }
         public Process Server { get; set; }
     }
 
-    internal enum ServerId
+    public enum ServerId
     {
         Redis1,
         Redis2,
