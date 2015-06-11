@@ -21,7 +21,7 @@ namespace Microsoft.Web.Redis.FunctionalTests
 
         private readonly string  redisServerLocation = @"..\..\..\..\..\..\packages\Redis-64.2.8.19\redis-server.exe";
 
-        private readonly string redisConfigLocation = @"..\..\..\..\..\..\packages\Redis-64.2.8.19\";
+        private readonly string redisConfigLocation = @"..\..\..\..\..\..\Test\Configs\";
 
        
 
@@ -34,6 +34,7 @@ namespace Microsoft.Web.Redis.FunctionalTests
                 {
                     Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                     socket.Connect("localhost", port);
+                    
                     socket.Close();
                     LogUtility.LogInfo("Successful started redis server after Time: {0} ms", (i + 1) * 10);
                     break;
@@ -50,8 +51,6 @@ namespace Microsoft.Web.Redis.FunctionalTests
             SetUpServers();
 
             StartServers();
-          
-           
         }
 
         private void StartServers()
@@ -100,9 +99,14 @@ namespace Microsoft.Web.Redis.FunctionalTests
             _servers = new List<ServerSetup>();
             var redis1Args = String.Format("{0}redis1.conf", redisConfigLocation);
             var redis2Args = String.Format("{0}redis2.conf", redisConfigLocation);
-
+            var sentinel1Args = string.Format("{0}sentinel1.conf --sentinel", redisConfigLocation);
+            var sentinel2Args = string.Format("{0}sentinel2.conf --sentinel", redisConfigLocation);
+            var sentinel3Args = string.Format("{0}sentinel3.conf --sentinel", redisConfigLocation);
             _servers.Add(CreateServerSetup(ServerId.Redis1,  6379, redis1Args));
             _servers.Add(CreateServerSetup(ServerId.Redis2, 6380, redis2Args));
+            _servers.Add(CreateServerSetup(ServerId.Sentinel1, 5000, sentinel1Args));
+            _servers.Add(CreateServerSetup(ServerId.Sentinel2, 5001, sentinel2Args));
+            _servers.Add(CreateServerSetup(ServerId.Sentinel3, 5002, sentinel3Args));
 
         }
 

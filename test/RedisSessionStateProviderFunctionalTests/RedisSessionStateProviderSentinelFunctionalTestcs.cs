@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -15,7 +16,7 @@ namespace Microsoft.Web.Redis.FunctionalTests
         {
             using (RedisSentinel sentinel = new RedisSentinel())
             {
-                
+                Debugger.Break();
             }
             
             Assert.True(true);

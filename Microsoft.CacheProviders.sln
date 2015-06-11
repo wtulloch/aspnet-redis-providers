@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SessionStateProvider", "SessionStateProvider", "{D1569544-C796-411D-ACF1-83F64CE7F0B8}"
 EndProject
@@ -24,6 +24,22 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisOutputCacheProvider.UnitTests", "test\OutputCacheProviderUnitTests\RedisOutputCacheProvider.UnitTests.csproj", "{9BC29B91-CCB5-499A-B68B-5AAC0492B7CB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisOutputCacheProvider.FunctionalTests", "test\OutputCacheProviderFunctionalTests\RedisOutputCacheProvider.FunctionalTests.csproj", "{0F2B2EE8-83D9-4442-B71A-73BC2033D323}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configs", "Configs", "{84C0E88B-9F69-4076-93A3-F5F4335F58C2}"
+	ProjectSection(SolutionItems) = preProject
+		test\Configs\redis1.conf = test\Configs\redis1.conf
+		test\Configs\redis2.conf = test\Configs\redis2.conf
+		test\Configs\sentinel1.conf = test\Configs\sentinel1.conf
+		test\Configs\sentinel2.conf = test\Configs\sentinel2.conf
+		test\Configs\sentinel3.conf = test\Configs\sentinel3.conf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestsShared", "TestsShared", "{0C90E29D-4485-400E-B1EF-D0E715D62646}"
+	ProjectSection(SolutionItems) = preProject
+		test\Shared\RedisSentinel.cs = test\Shared\RedisSentinel.cs
+		test\Shared\RedisServer.cs = test\Shared\RedisServer.cs
+		test\Shared\Utility.cs = test\Shared\Utility.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
